@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ikmi.me — Test Site</title>
+  <meta name="description" content="Website sederhana untuk testing Cloudflare + keamanan dasar." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <strong>ikmi.me</strong>
+      <span class="muted">/ test site</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#status">Status</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero">
+      <h1>Website testing Cloudflare</h1>
+      <p class="lead">
+        Halaman ini dibuat untuk uji konfigurasi DNS, SSL, cache, dan rule keamanan dasar di Cloudflare.
+      </p>
+
+      <div class="grid">
+        <div class="pill">
+          <div class="label">Waktu</div>
+          <div id="now" class="value">-</div>
+        </div>
+        <div class="pill">
+          <div class="label">Hostname</div>
+          <div id="host" class="value">-</div>
+        </div>
+        <div class="pill">
+          <div class="label">Protocol</div>
+          <div id="proto" class="value">-</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="pingBtn" class="btn">Cek halaman hidup</button>
+        <span id="pingResult" class="muted"></span>
+      </div>
+    </section>
+
+    <section id="status" class="card">
+      <h2>Status</h2>
+      <ul class="list">
+        <li><span class="k">HTTPS</span><span class="v" id="httpsStatus">-</span></li>
+        <li><span class="k">Cloudflare Cache</span><span class="v" id="cacheHint">-</span></li>
+        <li><span class="k">User Agent</span><span class="v small" id="ua">-</span></li>
+      </ul>
+      <p class="hint">
+        Catatan: halaman statis ini tidak punya backend, jadi testing fokus ke lapisan Cloudflare (DNS/SSL/WAF/rate limit).
+      </p>
+    </section>
+
+    <section id="tools" class="card">
+      <h2>Checklist singkat (nanti)</h2>
+      <ol class="steps">
+        <li>Aktifkan HTTPS & redirect ke HTTPS</li>
+        <li>Tambahkan rules (rate limit / block path tertentu)</li>
+        <li>Uji header keamanan & caching</li>
+      </ol>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Kontak</h2>
+      <p class="muted">Halaman demo — isi sesuai kebutuhan.</p>
+      <form id="fakeForm" class="form">
+        <label>
+          Email
+          <input type="email" placeholder="nama@email.com" required />
+        </label>
+        <label>
+          Pesan
+          <textarea placeholder="Tulis pesan..." rows="4" required></textarea>
+        </label>
+        <button class="btn" type="submit">Kirim (demo)</button>
+        <p id="formMsg" class="muted"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span class="muted">© <span id="year"></span> ikmi.me</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
